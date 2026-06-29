@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>هل أستطيع شراء الخدمة؟ — قانون الضمان الاجتماعي رقم 18 لسنة 2023</title>
+<meta name="description" content="أداة عراقية مجانية تساعدك على معرفة هل يحق لك شراء الخدمة وفق قانون الضمان الاجتماعي رقم 18 لسنة 2023، وكم سنة يمكنك شراءها، ومتى تستحق التقاعد.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0a4a3a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="شراء الخدمة">
+<style>
+/* ════════════════════════════════════════════════════════════
+   1) DESIGN TOKENS
+   ════════════════════════════════════════════════════════════ */
+:root{
+  --teal-900:#0a4a3a; --teal-700:#0d5c4a; --teal-500:#117a62; --teal-300:#17a882;
+  --gold-700:#9c7209; --gold-500:#b8860b; --gold-300:#d4a017; --gold-100:#f0c030;
+  --ok:#147a50;   --ok-bg:#e7f6ee;
+  --warn:#9c7209; --warn-bg:#fdf3d9;
+  --bad:#a8392c;  --bad-bg:#fbeae7;
+
+  --ink:#15241f; --ink2:#3d4f49; --muted:#6c7a75;
+  --bg-a:#eef6f1; --bg-b:#f6f3ea; --bg-c:#fbf7ec;
+  --glass:rgba(255,255,255,.58); --glass-brd:rgba(255,255,255,.75);
+  --glass-2:rgba(255,255,255,.4);
+  --shadow:0 10px 35px rgba(13,46,38,.10), 0 2px 8px rgba(13,46,38,.06);
+  --r:18px; --r-sm:12px;
+  --font:'IBM Plex Sans Arabic',Tahoma,sans-serif;
+  --serif:'Amiri',serif;
+}
+
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font); color:var(--ink); min-height:100vh; line-height:1.7; font-size:15.5px;
+  background:
+    radial-gradient(900px 500px at 90% -10%, rgba(23,168,130,.16), transparent 60%),
+    radial-gradient(700px 600px at -10% 20%, rgba(212,160,23,.13), transparent 55%),
+    linear-gradient(165deg,var(--bg-a) 0%, var(--bg-b) 55%, var(--bg-c) 100%);
+  background-attachment:fixed;
+  transition:background .3s,color .3s;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit}
+button{font-family:inherit}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+.icon{width:1.05em;height:1.05em;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.18em;flex-shrink:0}
+
+/* ── HEADER ── */
+header{position:sticky;top:0;z-index:300;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:linear-gradient(90deg,var(--teal-900),var(--teal-700));box-shadow:0 2px 18px rgba(0,0,0,.18)}
+header::after{content:'';display:block;height:3px;background:linear-gradient(90deg,var(--teal-300) 0%,var(--gold-100) 45%,var(--gold-500) 60%,var(--teal-300) 100%)}
+.hdr{display:flex;align-items:center;gap:11px;padding:13px 16px;max-width:680px;margin:0 auto}
+.hdr-logo{width:38px;height:38px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--gold-500),var(--gold-100));box-shadow:0 2px 10px rgba(0,0,0,.25);color:#1a3a2c}
+.hdr-text h1{font-size:.95rem;font-weight:700;color:#fff;line-height:1.25}
+.hdr-text p{font-size:.62rem;color:rgba(255,255,255,.62);margin-top:1px}
+.hdr-actions{margin-right:auto;display:flex;gap:6px}
+.icon-btn{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);
+  color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s}
+.icon-btn:hover{background:rgba(255,255,255,.18);transform:translateY(-1px)}
+.icon-btn .icon{width:17px;height:17px}
+
+main{max-width:680px;margin:0 auto;padding:18px 16px 70px;display:flex;flex-direction:column;gap:16px}
+
+/* ── GLASS CARD ── */
+.glass{background:var(--glass);border:1px solid var(--glass-brd);border-radius:var(--r);box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);overflow:hidden}
+.pad{padding:18px}
+
+/* ── DISCLAIMER ── */
+.disclaimer{border-right:4px solid var(--gold-500);display:flex;gap:11px;align-items:flex-start}
+.disclaimer .icon{color:var(--gold-700);width:20px;height:20px;margin-top:2px}
+.disclaimer p{font-size:.84rem;color:var(--ink2)}
+.disclaimer b{color:var(--ink);font-weight:700}
+
+/* ── SECTION TITLES ── */
+.s-head{display:flex;align-items:center;gap:9px;padding:14px 18px;background:linear-gradient(90deg,var(--teal-900),var(--teal-700));}
+.s-head .num{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.3);
+  display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;color:#fff;flex-shrink:0}
+.s-head h2{font-size:.86rem;font-weight:700;color:#fff;flex:1}
+.s-body{padding:18px}
+
+/* ── GATE (نعم / لا) ── */
+.gate-q{font-size:.92rem;font-weight:600;margin-bottom:13px;color:var(--ink)}
+.gate-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gate-btn{padding:16px 10px;border-radius:var(--r-sm);border:1.6px solid rgba(120,140,130,.25);background:var(--glass-2);
+  cursor:pointer;text-align:center;transition:all .18s;display:flex;flex-direction:column;align-items:center;gap:6px}
+.gate-btn .icon{width:22px;height:22px;color:var(--muted)}
+.gate-btn span{font-size:.85rem;font-weight:700;color:var(--ink2)}
+.gate-btn:hover{transform:translateY(-2px);border-color:var(--teal-300)}
+.gate-btn.active{border-color:var(--teal-500);background:linear-gradient(160deg,rgba(23,168,130,.16),rgba(23,168,130,.05))}
+.gate-btn.active .icon{color:var(--teal-500)}
+.gate-btn.active span{color:var(--teal-900)}
+
+/* ── FORM ── */
+#formCard{display:none}
+#formCard.show{display:block;animation:slideIn .35s ease}
+@keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.field-lbl{font-size:.74rem;font-weight:700;color:var(--teal-700);display:flex;align-items:center;gap:5px;margin-bottom:7px}
+.field-lbl .req{color:var(--bad);font-size:.8rem}
+.field-block{margin-bottom:18px}
+.date-row{display:flex;gap:7px}
+.date-row select{flex:1}
+select,.ctrl{
+  height:46px;border-radius:10px;border:1.5px solid rgba(120,140,130,.28);padding:0 12px;
+  font-family:inherit;font-size:.86rem;color:var(--ink);background:var(--glass-2);outline:none;width:100%;
+  transition:border-color .15s,box-shadow .15s;appearance:none;-webkit-appearance:none;
+}
+select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23117a62'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:left 13px center;padding-left:30px;
+}
+select:focus,.ctrl:focus{border-color:var(--teal-300);box-shadow:0 0 0 3px rgba(23,168,130,.16)}
+.gender-row{display:flex;gap:8px}
+.gender-opt{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;height:46px;border-radius:10px;
+  border:1.5px solid rgba(120,140,130,.28);background:var(--glass-2);cursor:pointer;font-size:.85rem;font-weight:600;color:var(--ink2);transition:all .15s}
+.gender-opt input{display:none}
+.gender-opt.active{border-color:var(--teal-500);background:linear-gradient(160deg,rgba(23,168,130,.16),rgba(23,168,130,.05));color:var(--teal-900)}
+.gender-opt .icon{width:17px;height:17px}
+
+.svc-wrap{position:relative}
+.svc-help-btn{position:absolute;left:10px;top:11px;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold-500);
+  background:transparent;color:var(--gold-700);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.7rem;font-weight:800}
+.svc-hint{font-size:.72rem;color:var(--teal-700);margin-top:7px;font-weight:600;background:var(--ok-bg);display:inline-flex;padding:4px 10px;border-radius:20px}
+.approx-note{font-size:.76rem;color:var(--warn);background:var(--warn-bg);border-radius:10px;padding:10px 12px;display:flex;gap:8px;align-items:flex-start;margin-top:4px}
+.approx-note .icon{width:15px;height:15px;margin-top:2px;flex-shrink:0}
+
+.actions{display:flex;gap:9px;margin-top:6px}
+.btn{flex:1;height:48px;border-radius:12px;border:none;font-weight:700;font-size:.88rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:7px;transition:all .18s}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-primary{background:linear-gradient(135deg,var(--teal-700),var(--teal-500));color:#fff;box-shadow:0 5px 16px rgba(13,92,74,.35);flex:2.2}
+.btn-primary:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 7px 20px rgba(13,92,74,.45)}
+.btn-ghost{background:var(--glass-2);color:var(--ink2);border:1.5px solid rgba(120,140,130,.28)}
+.btn-ghost:hover{background:rgba(120,140,130,.12)}
+
+/* ── RESULTS ── */
+#results{display:none}
+#results.show{display:block;animation:slideIn .4s ease}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.stat{background:var(--glass-2);border-radius:var(--r-sm);padding:13px;text-align:center;border:1px solid rgba(120,140,130,.18)}
+.stat .v{font-size:1.15rem;font-weight:800;color:var(--teal-700)}
+.stat .l{font-size:.66rem;color:var(--muted);margin-top:3px}
+
+.headline{border-radius:var(--r-sm);padding:15px 16px;margin-bottom:18px;display:flex;gap:11px;align-items:flex-start}
+.headline .icon{width:22px;height:22px;flex-shrink:0;margin-top:1px}
+.headline.ok{background:var(--ok-bg);color:var(--ok)}
+.headline.warn{background:var(--warn-bg);color:var(--warn)}
+.headline.bad{background:var(--bad-bg);color:var(--bad)}
+.headline b{font-size:.9rem;display:block;margin-bottom:3px}
+.headline span{font-size:.8rem;font-weight:500;opacity:.92}
+
+/* timeline signature */
+.timeline-wrap{margin-bottom:20px}
+.timeline-title{font-size:.72rem;font-weight:700;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.timeline{position:relative;height:64px;margin:0 6px}
+.timeline .track{position:absolute;top:28px;right:0;left:0;height:4px;background:rgba(120,140,130,.22);border-radius:4px}
+.timeline .track-fill{position:absolute;top:28px;right:0;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--gold-500),var(--teal-300));transition:width .6s ease}
+.tl-now{position:absolute;top:14px;width:32px;height:32px;margin-right:-16px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal-700),var(--teal-500));color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:.6rem;font-weight:800;box-shadow:0 3px 10px rgba(13,92,74,.4);border:2px solid var(--bg-a);z-index:3}
+.tl-point{position:absolute;top:20px;width:20px;height:20px;margin-right:-10px;border-radius:50%;border:2.5px solid var(--bg-a);z-index:2;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.tl-point.ok{background:var(--ok)} .tl-point.warn{background:var(--warn)} .tl-point.bad{background:var(--bad)} .tl-point.muted{background:var(--muted)}
+.tl-label{position:absolute;top:48px;font-size:.62rem;font-weight:700;color:var(--ink2);white-space:nowrap;transform:translateX(50%)}
+
+.plan-card{border-radius:var(--r-sm);border:1.5px solid rgba(120,140,130,.2);margin-bottom:11px;overflow:hidden;background:var(--glass-2)}
+.plan-card.best{border-color:var(--teal-300);box-shadow:0 4px 16px rgba(23,168,130,.18)}
+.plan-card.expired{opacity:.55}
+.plan-top{display:flex;align-items:center;gap:9px;padding:11px 14px;background:rgba(120,140,130,.08)}
+.plan-top .age{font-size:.95rem;font-weight:800;color:var(--ink)}
+.plan-top .badge{margin-right:auto;font-size:.6rem;font-weight:800;background:var(--gold-100);color:#5c4205;padding:3px 9px;border-radius:20px}
+.plan-body{padding:13px 14px}
+.plan-row{display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink2);padding:4px 0}
+.plan-row b{color:var(--ink);font-weight:700}
+.plan-status{display:flex;gap:8px;align-items:flex-start;border-radius:9px;padding:9px 11px;margin-top:9px;font-size:.78rem;font-weight:600}
+.plan-status .icon{width:16px;height:16px;flex-shrink:0;margin-top:1px}
+.plan-status.ok{background:var(--ok-bg);color:var(--ok)}
+.plan-status.warn{background:var(--warn-bg);color:var(--warn)}
+.plan-status.bad{background:var(--bad-bg);color:var(--bad)}
+
+.legal-link{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;height:44px;border-radius:11px;
+  border:1.5px dashed var(--gold-500);background:transparent;color:var(--gold-700);font-weight:700;font-size:.82rem;cursor:pointer;margin-top:4px}
+.legal-link:hover{background:rgba(212,160,23,.1)}
+
+.cta-card{padding:20px 18px;text-align:center;background:linear-gradient(150deg,var(--teal-900),var(--teal-700) 60%,var(--teal-500));border-radius:var(--r);box-shadow:var(--shadow)}
+.cta-card h3{color:#fff;font-size:.92rem;font-weight:700;margin-bottom:5px}
+.cta-card p{color:rgba(255,255,255,.7);font-size:.74rem;margin-bottom:14px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold-300),var(--gold-500));
+  color:#2a1f02;font-weight:800;font-size:.86rem;padding:13px 24px;border-radius:12px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);transition:transform .18s}
+.cta-btn:hover{transform:translateY(-2px)}
+.cta-btn .icon{width:18px;height:18px}
+
+footer{text-align:center;padding:8px 16px 30px;font-size:.68rem;color:var(--muted);max-width:680px;margin:0 auto}
+
+/* ── MODALS ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(5,15,12,.55);backdrop-filter:blur(4px);z-index:500;display:none;
+  align-items:flex-end;justify-content:center}
+.modal-overlay.show{display:flex;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-box{background:var(--bg-c);width:100%;max-width:680px;max-height:86vh;overflow-y:auto;border-radius:22px 22px 0 0;
+  border:1px solid var(--glass-brd);box-shadow:0 -10px 40px rgba(0,0,0,.3);animation:up .25s ease}
+@keyframes up{from{transform:translateY(30px)}to{transform:translateY(0)}}
+.modal-head{position:sticky;top:0;display:flex;align-items:center;gap:10px;padding:16px 18px;background:linear-gradient(90deg,var(--teal-900),var(--teal-700));z-index:2}
+.modal-head h3{color:#fff;font-size:.9rem;font-weight:700;flex:1}
+.modal-close{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal-body{padding:18px 20px 28px}
+.law-art{margin-bottom:22px}
+.law-art h4{font-family:var(--serif);font-size:1.12rem;color:var(--teal-700);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:7px;border-bottom:2px solid rgba(23,168,130,.18);padding-bottom:8px}
+.law-art ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.law-art li{font-family:var(--serif);font-size:.98rem;line-height:1.9;color:var(--ink2);background:var(--glass-2);
+  border-right:3px solid var(--gold-500);padding:10px 14px;border-radius:8px}
+.law-note{font-size:.8rem;color:var(--muted);background:var(--glass-2);padding:11px 14px;border-radius:9px;margin-top:8px;font-family:var(--serif);line-height:1.8}
+.law-highlight{font-family:var(--serif);font-size:1rem;line-height:2;color:var(--ink2);background:var(--warn-bg);border-right:4px solid var(--gold-500);padding:13px 16px;border-radius:10px;margin-bottom:8px}
+.law-cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+.law-card{border-radius:12px;overflow:hidden;border:1.5px solid rgba(120,140,130,.2)}
+.law-card.male{border-color:rgba(13,92,74,.25)}
+.law-card.female{border-color:rgba(184,134,11,.25)}
+.law-card-gender{font-family:var(--serif);font-size:.95rem;font-weight:700;padding:9px 12px;background:linear-gradient(90deg,var(--teal-900),var(--teal-700));color:#fff;text-align:center}
+.law-card.female .law-card-gender{background:linear-gradient(90deg,var(--gold-700),var(--gold-500));color:#1a0f00}
+.law-card-item{display:flex;flex-direction:column;gap:2px;padding:9px 12px;border-bottom:1px solid rgba(120,140,130,.12);background:var(--glass-2)}
+.law-card-item:last-child{border-bottom:none}
+.law-age{font-family:var(--serif);font-size:.98rem;font-weight:700;color:var(--teal-700)}
+.law-svc{font-family:var(--serif);font-size:.78rem;color:var(--muted)}
+.help-examples{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.help-examples div{display:flex;justify-content:space-between;font-size:.82rem;background:var(--glass-2);padding:8px 12px;border-radius:8px}
+.help-examples b{color:var(--teal-700)}
+
+@media (max-width:380px){
+  .summary-grid{grid-template-columns:1fr 1fr}
+  .date-row{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="hdr-logo">
+      <svg class="icon" viewBox="0 0 24 24" style="width:19px;height:19px"><path d="M12 3v18M5 8l-3 6a4 4 0 0 0 8 0l-3-6zm14 0l-3 6a4 4 0 0 0 8 0l-3-6zM3 8h6M15 8h6M7 21h10"/></svg>
+    </div>
+    <div class="hdr-text">
+      <h1>هل أستطيع شراء الخدمة؟</h1>
+      <p>قانون الضمان الاجتماعي رقم (18) لسنة 2023</p>
+    </div>
+    <div class="hdr-actions">
+      <button class="icon-btn" id="legalBtn" title="الإطار القانوني" aria-label="الإطار القانوني">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v18M5 8l-3 6a4 4 0 0 0 8 0l-3-6zm14 0l-3 6a4 4 0 0 0 8 0l-3-6zM3 8h6M15 8h6M7 21h10"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- التنويه -->
+  <div class="glass pad disclaimer">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M12 8.2v.1M12 11v5.2"/></svg>
+    <p>هذا الموقع مخصص فقط للعاملين المشمولين بقانون الضمان الاجتماعي رقم (18) لسنة 2023 <b>(الضمان الإلزامي والضمان الاختياري)</b>، ولا يشمل موظفي الدولة أو أي قانون تقاعد آخر.</p>
+  </div>
+
+  <!-- البوابة: هل أنت عامل بالقطاع الخاص ومسجل بالضمان؟ -->
+  <div class="glass">
+    <div class="s-head"><div class="num">1</div><h2>هل أنت عامل بالقطاع الخاص ومسجل بالضمان الاجتماعي؟</h2></div>
+    <div class="s-body">
+      <p class="gate-q">حدد إجابتك لتظهر لك الحقول المناسبة لحالتك:</p>
+      <div class="gate-row">
+        <button class="gate-btn" id="gateYes" data-v="yes">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>نعم</span>
+        </button>
+        <button class="gate-btn" id="gateNo" data-v="no">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
+          <span>لا</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- النموذج -->
+  <div class="glass" id="formCard">
+    <div class="s-head"><div class="num">2</div><h2>بياناتك الأساسية</h2></div>
+    <div class="s-body">
+
+      <div class="field-block">
+        <div class="field-lbl"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> تاريخ الميلاد <span class="req">*</span></div>
+        <div class="date-row">
+          <select id="bDay" aria-label="اليوم"></select>
+          <select id="bMonth" aria-label="الشهر"></select>
+          <select id="bYear" aria-label="السنة"></select>
+        </div>
+      </div>
+
+      <div class="field-block">
+        <div class="field-lbl"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-6 7-6s7 2 7 6"/></svg> الجنس <span class="req">*</span></div>
+        <div class="gender-row">
+          <label class="gender-opt" id="genderMaleLbl"><input type="radio" name="gender" value="male"><svg class="icon" viewBox="0 0 24 24"><circle cx="10" cy="14" r="6"/><path d="M14.5 9.5L21 3M21 3h-5M21 3v5"/></svg> ذكر</label>
+          <label class="gender-opt" id="genderFemaleLbl"><input type="radio" name="gender" value="female"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M12 15v6M9 18h6"/></svg> أنثى</label>
+        </div>
+      </div>
+
+      <div class="field-block" id="serviceBlock">
+        <div class="field-lbl"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg> عدد أشهر الخدمة المضمونة <span class="req">*</span></div>
+        <div class="svc-wrap">
+          <input type="number" class="ctrl" id="svcMonths" placeholder="مثال: 240" min="0" max="700" style="padding-right:38px">
+          <button class="svc-help-btn" id="svcHelpBtn" type="button" aria-label="مساعدة">؟</button>
+        </div>
+        <div id="svcHint" class="svc-hint" style="display:none"></div>
+      </div>
+
+      <div class="approx-note" id="approxNote" style="display:none">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M12 8.2v.1M12 11v5.2"/></svg>
+        <span>بما أنك غير مسجل في الضمان الاجتماعي حالياً، سيتم احتساب مدة خدمتك <b>ابتداءً من تاريخ اليوم</b> كأول يوم للتسجيل.</span>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="calcBtn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg>
+          احتساب النتيجة
+        </button>
+        <button class="btn btn-ghost" id="resetBtn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg>
+          إعادة تعيين
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- النتائج -->
+  <div id="results">
+    <div class="glass pad" style="margin-bottom:16px">
+      <div class="summary-grid">
+        <div class="stat"><div class="v" id="sumAge">—</div><div class="l">عمرك الحالي</div></div>
+        <div class="stat"><div class="v" id="sumSvc">—</div><div class="l">خدمتك الحالية</div></div>
+      </div>
+
+      <div class="headline" id="headline"></div>
+
+      <button class="legal-link" id="legalBtn2">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v18M5 8l-3 6a4 4 0 0 0 8 0l-3-6zm14 0l-3 6a4 4 0 0 0 8 0l-3-6zM3 8h6M15 8h6M7 21h10"/></svg>
+        اطّلع على النصوص القانونية
+      </button>
+    </div>
+
+    <div id="planList"></div>
+
+    <div class="cta-card">
+      <h3>تريد معرفة كلفة الشراء أو مبلغ راتبك التقاعدي؟</h3>
+      <p>استخدم حاسبة التقاعد الاختياري الكاملة لمعرفة الراتب المتوقع وكلفة شراء الخدمة بالدينار</p>
+      <a class="cta-btn" id="ctaCalc" href="https://msndbw.github.io/retirement-calculator/" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+        حساب مبلغ الشراء والراتب التقاعدي
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  هذه الأداة مخصصة للمساعدة والتوضيح فقط، ونتائجها تقريبية وتعتمد على استمرار المشترك بتسديد الاشتراكات وفق أحكام قانون الضمان الاجتماعي. وتبقى دائرة التقاعد والضمان الاجتماعي للعمال هي الجهة الرسمية المعتمدة في احتساب الخدمة وتحديد الاستحقاق النهائي عند الوصول إلى سن الإحالة إلى التقاعد.
+</footer>
+
+<!-- مودال: الإطار القانوني -->
+<div class="modal-overlay" id="legalModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <svg class="icon" viewBox="0 0 24 24" style="color:#fff;width:20px;height:20px"><path d="M12 3v18M5 8l-3 6a4 4 0 0 0 8 0l-3-6zm14 0l-3 6a4 4 0 0 0 8 0l-3-6zM3 8h6M15 8h6M7 21h10"/></svg>
+      <h3>الإطار القانوني — قانون رقم (18) لسنة 2023</h3>
+      <button class="modal-close" data-close="legalModal">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="law-art">
+        <h4><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;margin-left:4px"><path d="M12 3v18M5 8l-3 6a4 4 0 0 0 8 0l-3-6zm14 0l-3 6a4 4 0 0 0 8 0l-3-6zM3 8h6M15 8h6M7 21h10"/></svg>المادة (29) — حالات استحقاق الراتب التقاعدي</h4>
+        <div class="law-cards-grid">
+          <div class="law-card male">
+            <div class="law-card-gender">👨 الرجل</div>
+            <div class="law-card-item"><span class="law-age">63 سنة</span><span class="law-svc">خدمة 15 سنة</span></div>
+            <div class="law-card-item"><span class="law-age">60 سنة</span><span class="law-svc">خدمة 20 سنة</span></div>
+            <div class="law-card-item"><span class="law-age">50 سنة</span><span class="law-svc">خدمة 30 سنة</span></div>
+          </div>
+          <div class="law-card female">
+            <div class="law-card-gender">👩 المرأة</div>
+            <div class="law-card-item"><span class="law-age">58 سنة</span><span class="law-svc">خدمة 15 سنة</span></div>
+            <div class="law-card-item"><span class="law-age">55 سنة</span><span class="law-svc">خدمة 20 سنة</span></div>
+            <div class="law-card-item"><span class="law-age">50 سنة</span><span class="law-svc">خدمة 25 سنة</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="law-art">
+        <h4><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;margin-left:4px"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>المادة (33) — شراء الخدمة</h4>
+        <div class="law-highlight">
+          يجوز للمضمون الذي بلغ السن التقاعدي وليس لديه خدمة كافية للتقاعد، شراء خدمة أو إضافة خدمة وفق الشروط القانونية، على ألا تزيد مدة الشراء على <b>خمس سنوات</b>.
+        </div>
+        <div class="law-note">بمعنى آخر: إذا بلغت سن التقاعد وكان لديك نقص لا يتجاوز 5 سنوات في مدة الخدمة، يمكنك شراء هذا النقص لإكمال شروط التقاعد.</div>
+      </div>
+
+      <div class="law-art">
+        <h4><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;margin-left:4px"><path d="M9 11l3 3L22 4M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg>شروط شراء الخدمة بحسب السن</h4>
+        <div class="law-cards-grid">
+          <div class="law-card male">
+            <div class="law-card-gender">👨 الرجل</div>
+            <div class="law-card-item"><span class="law-age">63 سنة</span><span class="law-svc">خدمة فعلية ≥ 10 سنوات</span></div>
+            <div class="law-card-item"><span class="law-age">60–62 سنة</span><span class="law-svc">خدمة فعلية ≥ 15 سنة</span></div>
+            <div class="law-card-item"><span class="law-age">50–59 سنة</span><span class="law-svc">خدمة فعلية ≥ 25 سنة</span></div>
+          </div>
+          <div class="law-card female">
+            <div class="law-card-gender">👩 المرأة</div>
+            <div class="law-card-item"><span class="law-age">58 سنة</span><span class="law-svc">خدمة فعلية ≥ 10 سنوات</span></div>
+            <div class="law-card-item"><span class="law-age">55–57 سنة</span><span class="law-svc">خدمة فعلية ≥ 15 سنة</span></div>
+            <div class="law-card-item"><span class="law-age">50–54 سنة</span><span class="law-svc">خدمة فعلية ≥ 20 سنة</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- مودال: مساعدة إدخال الخدمة -->
+<div class="modal-overlay" id="helpModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <svg class="icon" viewBox="0 0 24 24" style="color:#fff;width:18px;height:18px"><circle cx="12" cy="12" r="9.2"/><path d="M12 8.2v.1M12 11v5.2"/></svg>
+      <h3>طريقة إدخال الخدمة</h3>
+      <button class="modal-close" data-close="helpModal">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:.85rem;color:var(--ink2);margin-bottom:6px">أدخل عدد أشهر الخدمة المسجلة لك في الضمان الاجتماعي (وليس بالسنوات).</p>
+      <div class="help-examples">
+        <div><span>60 شهر</span><b>= 5 سنوات</b></div>
+        <div><span>120 شهر</span><b>= 10 سنوات</b></div>
+        <div><span>180 شهر</span><b>= 15 سنة</b></div>
+        <div><span>240 شهر</span><b>= 20 سنة</b></div>
+        <div><span>300 شهر</span><b>= 25 سنة</b></div>
+        <div><span>360 شهر</span><b>= 30 سنة</b></div>
+        <div><span>384 شهر</span><b>= 32 سنة (أعلى راتب)</b></div>
+      </div>
+      <div class="law-note" style="margin-top:10px">384 شهر خدمة (32 سنة) تمنح أعلى راتب تقاعدي وفق القانون الحالي.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   BUSINESS LOGIC — منفصل تماماً عن الواجهة
+   أي تعديل مستقبلي على القانون أو شروط التقاعد يتم هنا فقط
+   ════════════════════════════════════════════════════════════ */
+const LawEngine = (function(){
+
+  // أعمار وشروط خدمة الإحالة للتقاعد دون شراء — المادة (29)، مرتبة تصاعدياً بالعمر
+  // ageMax: نهاية النطاق العمري الذي يبقى فيه هذا الشرط سارياً (وفق شروط شراء الخدمة بحسب السن)
+  const RETIRE_THRESHOLDS = {
+    male:   [ {age:50, ageMax:59, years:30}, {age:60, ageMax:62, years:20}, {age:63, ageMax:63, years:15} ],
+    female: [ {age:50, ageMax:54, years:25}, {age:55, ageMax:57, years:20}, {age:58, ageMax:58, years:15} ]
+  };
+
+  // الحد الأقصى لمدة شراء الخدمة بالأشهر — المادة (33): 5 سنوات
+  const MAX_PURCHASE_MONTHS = 60;
+
+  function addYears(date, n){
+    return new Date(date.getFullYear()+n, date.getMonth(), date.getDate());
+  }
+
+  // الفرق بالسنوات/الأشهر بين تاريخين (from -> to)، to يجب أن يكون لاحقاً أو يساوي from
+  function diffYM(from, to){
+    let years = to.getFullYear()-from.getFullYear();
+    let months = to.getMonth()-from.getMonth();
+    let days = to.getDate()-from.getDate();
+    if(days<0) months--;
+    if(months<0){ years--; months+=12; }
+    if(years<0){ years=0; months=0; }
+    return {years, months};
+  }
+
+  // عدد الأشهر الكاملة بين تاريخين (from -> to)، لا يقل عن صفر
+  function monthsBetween(from, to){
+    let m = (to.getFullYear()-from.getFullYear())*12 + (to.getMonth()-from.getMonth());
+    if(to.getDate() < from.getDate()) m--;
+    return Math.max(0, m);
+  }
+
+  function ymToMonths(years, months){ return years*12 + months; }
+
+  function formatYM(totalMonths){
+    totalMonths = Math.max(0, Math.round(totalMonths));
+    const y = Math.floor(totalMonths/12), m = totalMonths%12;
+    if(y<=0) return `${m} شهر`;
+    if(m<=0) return `${y} سنة`;
+    return `${y} سنة و${m} شهر`;
+  }
+
+  /**
+   * يحسب موقف المستخدم عند كل عمر تقاعدي قانوني لجنسه.
+   * birthDate: Date | gender: 'male'|'female'
+   * currentServiceMonths: عدد أشهر الخدمة الحالية (أو null إذا غير معروفة)
+   * today: Date (تاريخ اليوم)
+   *
+   * ملاحظة دقيقة بشأن الحسابات:
+   * — "إكمال" السن يعني أن يبلغ الشخص يوم ميلاده الفعلي بالسنة المطلوبة.
+   *   مثال: من ولد 1975/03/15 يُكمل 50 سنة يوم 2025/03/15 بالضبط.
+   * — startDate = addYears(birthDate, t.age) تعطي هذا اليوم بدقة.
+   * — monthsUntil = عدد الأشهر الكاملة من اليوم حتى startDate.
+   *   (اعتمدنا الأشهر الكاملة لأن الاشتراك شهري)
+   * — projectedService = خدمته اليوم + الأشهر الكاملة حتى يبلغ السن.
+   *   (إذا كان قد بلغ السن فعلاً، نعتمد خدمته الآن مباشرةً)
+   * — deficit يُقرَّب للأعلى إلى أشهر كاملة (Math.ceil) لأن القانون يتطلب
+   *   إكمال المدة وليس تجاوزها بكسور.
+   * — purchaseMonths لا يتجاوز MAX_PURCHASE_MONTHS (60 شهر = 5 سنوات).
+   */
+  function evaluate({birthDate, gender, currentServiceMonths, today}){
+    const thresholds = RETIRE_THRESHOLDS[gender];
+    const hasService = typeof currentServiceMonths === 'number';
+    const currentAge = diffYM(birthDate, today);
+
+    const plans = thresholds.map(t=>{
+      // تاريخ إكمال السن (يوم الميلاد في السنة المطلوبة بالضبط)
+      const startDate = addYears(birthDate, t.age);
+      // تاريخ انتهاء صلاحية هذا النطاق (أول يوم بعد إكمال ageMax+1 سنة)
+      const exitDate  = addYears(birthDate, t.ageMax + 1);
+
+      // هل أكمل المستخدم السن المطلوب؟ (المقارنة بالملي ثانية تضمن الدقة)
+      const alreadyStarted = today.getTime() >= startDate.getTime();
+      // هل خرج عن هذا النطاق العمري؟
+      const expired = today.getTime() >= exitDate.getTime();
+
+      // عدد الأشهر الكاملة من اليوم حتى يُكمل السن
+      // — إذا أكمله فعلاً = 0 (يشتري الآن)
+      const monthsUntil = alreadyStarted ? 0 : monthsBetween(today, startDate);
+
+      const requiredMonths = t.years * 12;
+
+      let projectedService = null, deficit = null, status = 'unknown', purchaseMonths = 0;
+
+      if(hasService){
+        // الخدمة المتوقعة عند إكمال السن (أو الآن إن كان قد أكمله)
+        projectedService = currentServiceMonths + monthsUntil;
+
+        // النقص = المطلوب - المتوقع  (يُقرَّب للأعلى لأن الخدمة تُحسب بالشهر الكامل)
+        const rawDeficit = requiredMonths - projectedService;
+        deficit = rawDeficit > 0 ? Math.ceil(rawDeficit) : 0;
+
+        if(deficit <= 0){
+          status = 'ok';
+          deficit = 0;
+          purchaseMonths = 0;
+        } else if(deficit <= MAX_PURCHASE_MONTHS){
+          status = 'can_buy';
+          purchaseMonths = deficit; // أشهر كاملة
+        } else {
+          status = 'cannot_buy';
+          purchaseMonths = 0;
+        }
+      }
+
+      return {
+        age: t.age, ageMax: t.ageMax, requiredYears: t.years, requiredMonths,
+        startDate, exitDate, alreadyStarted, expired, monthsUntil,
+        projectedService, deficit, status, purchaseMonths
+      };
+    });
+
+    const recommended = hasService
+      ? (plans.find(p => !p.expired && p.status !== 'cannot_buy') || null)
+      : null;
+
+    return { currentAge, plans, recommended, hasService };
+  }
+
+  return { RETIRE_THRESHOLDS, MAX_PURCHASE_MONTHS, evaluate, diffYM, monthsBetween, addYears, formatYM, ymToMonths };
+})();
+
+
+/* ════════════════════════════════════════════════════════════
+   UI LAYER
+   ════════════════════════════════════════════════════════════ */
+(function(){
+
+  /* ── مودالات ── */
+  function openModal(id){ document.getElementById(id).classList.add('show'); }
+  function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+  document.getElementById('legalBtn').onclick = ()=>openModal('legalModal');
+  document.getElementById('legalBtn2').onclick = ()=>openModal('legalModal');
+  document.getElementById('svcHelpBtn').onclick = ()=>openModal('helpModal');
+  document.querySelectorAll('.modal-close').forEach(b=> b.onclick = ()=>closeModal(b.dataset.close));
+  document.querySelectorAll('.modal-overlay').forEach(o=> o.addEventListener('click', e=>{ if(e.target===o) o.classList.remove('show'); }));
+
+  /* ── بناء حقول التاريخ ── */
+  const dDay=document.getElementById('bDay'), dMonth=document.getElementById('bMonth'), dYear=document.getElementById('bYear');
+  const MONTHS = ['كانون الثاني','شباط','آذار','نيسان','أيار','حزيران','تموز','آب','أيلول','تشرين الأول','تشرين الثاني','كانون الأول'];
+  function fillSelect(sel, items, placeholder){
+    sel.innerHTML = `<option value="">${placeholder}</option>` + items.map(i=>`<option value="${i.v}">${i.t}</option>`).join('');
+  }
+  const thisYear = new Date().getFullYear();
+  fillSelect(dMonth, MONTHS.map((m,i)=>({v:i+1,t:m})), 'الشهر');
+  fillSelect(dYear, Array.from({length:66},(_,i)=>thisYear-15-i).map(y=>({v:y,t:y})), 'السنة');
+
+  function refreshDays(){
+    const m = +dMonth.value, y = +dYear.value || thisYear;
+    const max = (m>=1&&m<=12) ? new Date(y, m, 0).getDate() : 31;
+    const keep = dDay.value;
+    fillSelect(dDay, Array.from({length:max},(_,i)=>i+1).map(d=>({v:d,t:d})), 'اليوم');
+    if(keep && +keep<=max) dDay.value = keep;
+  }
+  refreshDays();
+  dMonth.addEventListener('change', refreshDays);
+  dYear.addEventListener('change', refreshDays);
+
+  /* ── البوابة ── */
+  let path = null; // 'yes' | 'no'
+  const gateYes=document.getElementById('gateYes'), gateNo=document.getElementById('gateNo');
+  const formCard=document.getElementById('formCard'), serviceBlock=document.getElementById('serviceBlock'), approxNote=document.getElementById('approxNote');
+  function setPath(p){
+    path = p;
+    gateYes.classList.toggle('active', p==='yes');
+    gateNo.classList.toggle('active', p==='no');
+    formCard.classList.add('show');
+    serviceBlock.style.display = (p==='yes') ? 'block' : 'none';
+    approxNote.style.display = (p==='no') ? 'flex' : 'none';
+    document.getElementById('results').classList.remove('show');
+    // للمسار "لا": نصفّر حقل الخدمة ونخفيه
+    if(p==='no'){ svcInput.value=''; svcHint.style.display='none'; }
+    formCard.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+  gateYes.onclick = ()=>setPath('yes');
+  gateNo.onclick  = ()=>setPath('no');
+
+  /* ── الجنس ── */
+  let gender=null;
+  document.querySelectorAll('input[name="gender"]').forEach(r=>{
+    r.addEventListener('change', ()=>{
+      gender = r.value;
+      document.getElementById('genderMaleLbl').classList.toggle('active', gender==='male');
+      document.getElementById('genderFemaleLbl').classList.toggle('active', gender==='female');
+      validateForm();
+    });
+  });
+
+  /* ── حقل الخدمة ── */
+  const svcInput = document.getElementById('svcMonths');
+  const svcHint = document.getElementById('svcHint');
+  svcInput.addEventListener('input', ()=>{
+    const v = +svcInput.value;
+    if(svcInput.value!=='' && v>=0){
+      svcHint.style.display='inline-flex';
+      svcHint.textContent = 'مدة الخدمة الحالية: ' + LawEngine.formatYM(v);
+    } else {
+      svcHint.style.display='none';
+    }
+    validateForm();
+  });
+
+  /* ── التحقق وتفعيل زر الحساب ── */
+  const calcBtn = document.getElementById('calcBtn');
+  function validateForm(){
+    // الزر دائماً مفعّل — التحقق يحدث عند الضغط
+  }
+
+  function scrollToMissing(){
+    if(!path){
+      document.getElementById('gateYes').scrollIntoView({behavior:'smooth', block:'center'});
+      showFieldError('يرجى الإجابة على السؤال الأول أولاً (نعم أو لا)');
+      return false;
+    }
+    if(!dDay.value || !dMonth.value || !dYear.value){
+      document.getElementById('bDay').scrollIntoView({behavior:'smooth', block:'center'});
+      showFieldError('يرجى إدخال تاريخ الميلاد كاملاً (اليوم والشهر والسنة)');
+      return false;
+    }
+    if(!gender){
+      document.getElementById('genderMaleLbl').scrollIntoView({behavior:'smooth', block:'center'});
+      showFieldError('يرجى تحديد الجنس (ذكر أو أنثى)');
+      return false;
+    }
+    if(path==='yes' && (svcInput.value==='' || +svcInput.value < 0)){
+      svcInput.scrollIntoView({behavior:'smooth', block:'center'});
+      showFieldError('يرجى إدخال عدد أشهر الخدمة المضمونة');
+      return false;
+    }
+    return true;
+  }
+
+  let errorTimer=null;
+  function showFieldError(msg){
+    let el = document.getElementById('fieldError');
+    if(!el){
+      el = document.createElement('div');
+      el.id='fieldError';
+      el.style.cssText='position:fixed;bottom:24px;right:50%;transform:translateX(50%);background:#a8392c;color:#fff;padding:11px 20px;border-radius:12px;font-size:.84rem;font-weight:700;z-index:999;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:320px;text-align:center;direction:rtl';
+      document.body.appendChild(el);
+    }
+    el.textContent=msg;
+    el.style.opacity='1';
+    clearTimeout(errorTimer);
+    errorTimer=setTimeout(()=>{ el.style.opacity='0'; },3000);
+  }
+
+  /* ── إعادة تعيين ── */
+  document.getElementById('resetBtn').onclick = ()=>{
+    path=null; gender=null;
+    gateYes.classList.remove('active'); gateNo.classList.remove('active');
+    formCard.classList.remove('show');
+    document.querySelectorAll('input[name="gender"]').forEach(r=>r.checked=false);
+    document.getElementById('genderMaleLbl').classList.remove('active');
+    document.getElementById('genderFemaleLbl').classList.remove('active');
+    dDay.value=''; dMonth.value=''; dYear.value=''; refreshDays();
+    svcInput.value=''; svcHint.style.display='none';
+    document.getElementById('results').classList.remove('show');
+    window.scrollTo({top:0, behavior:'smooth'});
+  };
+
+  /* ── الحساب وعرض النتائج ── */
+  const STATUS_META = {
+    ok:   { icon:'<path d="M20 6L9 17l-5-5"/>', cls:'ok',   label:'لا تحتاج إلى شراء خدمة' },
+    can_buy:{ icon:'<circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/>', cls:'warn', label:'يمكنك شراء الخدمة' },
+    cannot_buy:{ icon:'<circle cx="12" cy="12" r="9.2"/><path d="M9 9l6 6M15 9l-6 6"/>', cls:'bad', label:'لا يمكنك شراء الخدمة عند هذا السن' },
+    unknown:{ icon:'<circle cx="12" cy="12" r="9.2"/><path d="M12 8.2v.1M12 11v5.2"/>', cls:'warn', label:'يتطلب معرفة خدمتك للحساب الدقيق' }
+  };
+
+  function renderTimeline(plans, currentAgeYears, maxAge){
+    const tl = document.getElementById('timeline');
+    tl.innerHTML='';
+    const minAge = Math.min(currentAgeYears, plans[0].age);
+    const span = Math.max(1, maxAge - minAge);
+    const nowPct = Math.min(100, Math.max(0, ((currentAgeYears-minAge)/span)*100));
+    tl.insertAdjacentHTML('beforeend', `<div class="track"></div><div class="track-fill" style="width:${nowPct}%"></div>`);
+    tl.insertAdjacentHTML('beforeend', `<div class="tl-now" style="right:${nowPct}%" title="عمرك الآن">الآن</div>`);
+    plans.forEach(p=>{
+      const pct = Math.min(100, Math.max(0, ((p.age-minAge)/span)*100));
+      const cls = STATUS_META[p.status].cls;
+      tl.insertAdjacentHTML('beforeend', `<div class="tl-point ${cls}" style="right:${pct}%"></div><div class="tl-label" style="right:${pct}%">${p.age} سنة</div>`);
+    });
+  }
+
+  function renderResults(evalResult){
+    const { currentAge, plans, recommended, hasService } = evalResult;
+
+    document.getElementById('sumAge').textContent = `${currentAge.years} سنة و${currentAge.months} شهر`;
+    document.getElementById('sumSvc').textContent = (path==='yes' && hasService) ? LawEngine.formatYM(+svcInput.value) : 'ابتداءً من اليوم';
+
+    // العنوان الرئيسي
+    const headline = document.getElementById('headline');
+    if(path==='no'){
+      headline.className='headline warn';
+      headline.innerHTML = `<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M12 8.2v.1M12 11v5.2"/></svg>
+        <div><b>نتيجة تقريبية — الخدمة تبدأ من اليوم</b><span>بما أنك غير مسجل حالياً، تم احتساب مدة خدمتك ابتداءً من تاريخ اليوم. سجّل في الضمان الاجتماعي في أقرب وقت لبدء تراكم خدمتك الفعلية.</span></div>`;
+    } else if(recommended && recommended.status==='ok'){
+      headline.className='headline ok';
+      headline.innerHTML = `<svg class="icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+        <div><b>لا تحتاج إلى شراء أي خدمة 🎉</b><span>ستكون مستوفياً لشروط الإحالة إلى التقاعد عند بلوغك سن ${recommended.age} سنة، دون الحاجة لأي شراء خدمة.</span></div>`;
+    } else if(recommended && recommended.status==='can_buy'){
+      headline.className='headline warn';
+      headline.innerHTML = `<svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+        <div><b>يحق لك شراء الخدمة 🛒</b><span>عند بلوغك سن ${recommended.age} سنة تحتاج لشراء ${LawEngine.formatYM(recommended.purchaseMonths)} لتكتمل خدمتك إلى ${recommended.requiredYears} سنة ويحق لك التقاعد.</span></div>`;
+    } else {
+      headline.className='headline bad';
+      headline.innerHTML = `<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
+        <div><b>لا يمكنك شراء الخدمة حالياً</b><span>النقص في خدمتك يتجاوز الحد القانوني للشراء (5 سنوات) في جميع أعمار التقاعد القانونية. استمر بالعمل والاشتراك لتقليل الفجوة، أو راجع دائرة الضمان الاجتماعي.</span></div>`;
+    }
+
+    // بطاقات الخطط
+    const list = document.getElementById('planList');
+    list.innerHTML = plans.map(p=>{
+      const isBest = recommended && p.age===recommended.age && p.status===recommended.status;
+      const meta = STATUS_META[p.status];
+      const ageLabel = p.ageMax>p.age ? `${p.age}–${p.ageMax} سنة` : `${p.age} سنة`;
+      const startStr = p.startDate.toLocaleDateString('ar-IQ',{year:'numeric',month:'long'});
+
+      let whenHtml;
+      if(p.expired){
+        whenHtml = `<div class="plan-row"><span>هذا النطاق العمري</span><b>تجاوزته فعلاً</b></div>`;
+      } else if(p.alreadyStarted){
+        whenHtml = `<div class="plan-row"><span>وضعك</span><b>أنت ضمن هذا النطاق العمري الآن</b></div>`;
+      } else {
+        whenHtml = `<div class="plan-row"><span>تاريخ بلوغ هذا السن</span><b>${startStr}</b></div>`;
+      }
+
+      let statusHtml;
+      if(p.expired){
+        statusHtml = `<div class="plan-status bad"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M9 9l6 6M15 9l-6 6"/></svg><span>لم يعد هذا الخيار متاحاً لأنك تجاوزت عمره القانوني — انتقلت إلى الخيار التالي.</span></div>`;
+      } else if(p.status==='ok'){
+        statusHtml = `<div class="plan-status ok"><svg class="icon" viewBox="0 0 24 24">${meta.icon}</svg><span>لا تحتاج إلى شراء خدمة — ستكون مستوفياً لشروط التقاعد.</span></div>`;
+      } else if(p.status==='can_buy'){
+        statusHtml = `<div class="plan-status warn"><svg class="icon" viewBox="0 0 24 24">${meta.icon}</svg><span>يمكنك شراء ${LawEngine.formatYM(p.purchaseMonths)} لتكتمل خدمتك إلى ${p.requiredYears} سنة ويحق لك التقاعد.</span></div>`;
+      } else {
+        statusHtml = `<div class="plan-status bad"><svg class="icon" viewBox="0 0 24 24">${meta.icon}</svg><span>النقص (${LawEngine.formatYM(p.deficit)}) يتجاوز الحد القانوني للشراء (5 سنوات)، فلا يمكنك شراء الخدمة عند هذا السن.</span></div>`;
+      }
+
+      return `<div class="plan-card ${isBest?'best':''} ${p.expired?'expired':''}">
+        <div class="plan-top">
+          <span class="age">سن التقاعد: ${ageLabel}</span>
+          ${isBest?'<span class="badge">الأقرب لك</span>':''}
+        </div>
+        <div class="plan-body">
+          ${whenHtml}
+          <div class="plan-row"><span>الخدمة المطلوبة قانونياً</span><b>${p.requiredYears} سنة</b></div>
+          ${(!p.expired)?`<div class="plan-row"><span>خدمتك المتوقعة عند هذا السن</span><b>${LawEngine.formatYM(p.projectedService)}</b></div>`:''}
+          ${statusHtml}
+        </div>
+      </div>`;
+    }).join('');
+
+    document.getElementById('results').classList.add('show');
+    document.getElementById('results').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  calcBtn.onclick = ()=>{
+    if(!scrollToMissing()) return;
+    const birthDate = new Date(+dYear.value, +dMonth.value-1, +dDay.value);
+    const today = new Date();
+    // مسار "لا": غير مسجل — نحسب من تاريخ اليوم (خدمة = 0 أشهر حالياً)
+    const currentServiceMonths = path==='yes' ? +svcInput.value : 0;
+    const result = LawEngine.evaluate({birthDate, gender, currentServiceMonths, today});
+    renderResults(result);
+  };
+
+})();
+</script>
+</body>
+</html>
