@@ -894,6 +894,122 @@
             color: var(--primary-dark);
         }
 
+        /* ===== فيسبوك ===== */
+        .fb-section {
+            margin: 10px 0;
+            background: linear-gradient(135deg, #e8f0fe 0%, #f0f4ff 100%);
+            border-radius: var(--radius);
+            border: 1.5px solid #c3d4f8;
+            overflow: hidden;
+        }
+        .fb-inner {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+        }
+        .fb-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+        .fb-text { flex: 1; }
+        .fb-title {
+            font-size: 0.82rem;
+            color: #444;
+            margin: 0 0 3px;
+            font-family: var(--font);
+        }
+        .fb-name {
+            font-size: 0.97rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 0;
+            font-family: var(--font);
+        }
+        .fb-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #1877F2;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-size: 0.87rem;
+            font-weight: 700;
+            font-family: var(--font);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .fb-btn:hover { background: #145dbf; }
+
+        /* ===== عداد الزوار ===== */
+        .visitor-counter {
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            font-family: var(--font);
+        }
+        .visitor-counter span { opacity: 0.7; }
+
+        /* ===== تحسينات المودال القانوني ===== */
+        .law-sub {
+            font-size: 0.82rem;
+            color: var(--text-mid);
+            margin: 0 0 10px;
+            font-family: var(--font);
+            line-height: 1.7;
+        }
+        .law-explain-box {
+            background: linear-gradient(135deg, rgba(42,95,122,0.05), rgba(42,95,122,0.02));
+            border-right: 4px solid var(--primary);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            margin-bottom: 4px;
+        }
+        .law-explain-box p {
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            margin: 0 0 10px;
+            font-family: var(--font);
+            line-height: 1.85;
+        }
+        .law-explain-simple {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            background: rgba(255,255,255,0.7);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+        }
+        .law-explain-simple svg {
+            width: 18px; height: 18px;
+            stroke: var(--primary); stroke-width: 2.5; fill: none;
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .law-explain-simple span {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            font-family: var(--font);
+            line-height: 1.8;
+        }
+        .male-tag { background: linear-gradient(90deg, var(--primary-dark), var(--primary-mid)) !important; color: #fff !important; }
+        .female-tag { background: linear-gradient(90deg, #b8860b, #d4a017) !important; color: #fff !important; }
+        .item-note {
+            font-size: 0.72rem;
+            color: var(--text-light);
+            font-family: var(--font);
+            padding: 2px 10px 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-style: italic;
+        }
+        .item-note:last-child { border-bottom: none; padding-bottom: 4px; }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 500px) {
             .gate-row {
@@ -940,7 +1056,6 @@
 
         <!-- ===== HEADER ===== -->
         <header class="app-header">
-            <div class="app-logo">ض</div>
             <div class="app-title">
                 <h1>هل يحق لي شراء الخدمة؟</h1>
                 <p>قانون الضمان الاجتماعي رقم (18) لسنة 2023</p>
@@ -964,18 +1079,18 @@
         <div class="card">
             <div class="card-header">
                 <span class="step-num">1</span>
-                <h2>هل أنت عامل في القطاع الخاص ومسجل بالضمان الاجتماعي؟</h2>
+                <h2>هل أنت مشترك بالضمان الاجتماعي؟</h2>
             </div>
             <div class="card-body">
                 <p class="gate-question">اختر إجابتك لتظهر لك الحقول المناسبة لحالتك:</p>
                 <div class="gate-row">
                     <button class="gate-btn" id="gateYes" data-v="yes">
                         <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-                        <span>نعم، أنا مسجل</span>
+                        <span>نعم</span>
                     </button>
                     <button class="gate-btn" id="gateNo" data-v="no">
                         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
-                        <span>لا، لست مسجلاً</span>
+                        <span>لا</span>
                     </button>
                 </div>
                 <div id="gateHelper" style="margin-top:14px;font-size:0.8rem;color:var(--text-light);border-top:1px solid rgba(42,95,122,0.06);padding-top:12px;display:none;">
@@ -1042,7 +1157,13 @@
                 <!-- ملاحظة "لا" -->
                 <div class="approx-note" id="approxNote" style="display:none;">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M12 8.2v.1M12 11v5.2"/></svg>
-                    <span>لأنك غير مسجل حالياً، ستفترض الأداة أن خدمتك تبدأ من <strong>اليوم</strong>. ننصحك بالتسجيل الفعلي في أقرب وقت لبدء تراكم خدمتك الحقيقية.</span>
+                    <span>لأنك غير مشترك حالياً، ستفترض الأداة أن خدمتك تبدأ من <strong>اليوم</strong>. ننصحك بالاشتراك الفعلي في أقرب وقت لبدء تراكم خدمتك الحقيقية.</span>
+                </div>
+
+                <!-- تنبيه السن 50+ لغير المشترك -->
+                <div class="approx-note" id="ageWarnNote" style="display:none;border-right-color:#b03a2e;background:rgba(176,58,46,0.06);">
+                    <svg viewBox="0 0 24 24" style="stroke:#b03a2e;"><circle cx="12" cy="12" r="9.2"/><path d="M12 8.2v.1M12 11v5.2"/></svg>
+                    <span id="ageWarnText"></span>
                 </div>
 
                 <!-- أزرار -->
@@ -1095,10 +1216,28 @@
             </div>
         </div>
 
+        <!-- ===== فيسبوك ===== -->
+        <div class="fb-section">
+            <div class="fb-inner">
+                <svg class="fb-icon" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.095 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.095 24 18.1 24 12.073z"/></svg>
+                <div class="fb-text">
+                    <p class="fb-title">للمزيد من المعلومات، تابع صفحتنا على فيسبوك</p>
+                    <p class="fb-name">التقاعد الاختياري العراقي</p>
+                </div>
+                <a class="fb-btn" href="https://www.facebook.com/share/1bDWTYCQPM/" target="_blank" rel="noopener">
+                    تابعنا
+                </a>
+            </div>
+        </div>
+
         <!-- ===== FOOTER ===== -->
         <div class="footer-note">
             هذه الأداة للمساعدة والتوضيح فقط، ونتائجها تقريبية وتعتمد على استمرار المشترك بتسديد الاشتراكات وفق أحكام القانون.
             تبقى دائرة التقاعد والضمان الاجتماعي للعمال هي الجهة الرسمية المعتمدة في احتساب الخدمة وتحديد الاستحقاق النهائي.
+            <div class="visitor-counter">
+                <span>عدد الزوار:</span>
+                <script type="text/javascript" src="https://counter.websiteout.com/js/7/0/0/0"></script>
+            </div>
         </div>
 
     </div>
@@ -1113,46 +1252,86 @@
             </div>
             <div class="modal-body">
 
+                <!-- ما هو شراء الخدمة -->
                 <div class="law-section">
-                    <h4><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l-3 6a4 4 0 0 0 8 0l-3-6zm14 0l-3 6a4 4 0 0 0 8 0l-3-6zM3 8h6M15 8h6M7 21h10"/></svg> المادة (29) — حالات استحقاق الراتب التقاعدي</h4>
-                    <div class="law-grid">
-                        <div class="law-card">
-                            <div class="gender-tag">👨 الرجل</div>
-                            <div class="item"><span class="age">63 سنة</span><span class="svc">خدمة 15 سنة</span></div>
-                            <div class="item"><span class="age">60 سنة</span><span class="svc">خدمة 20 سنة</span></div>
-                            <div class="item"><span class="age">50 سنة</span><span class="svc">خدمة 30 سنة</span></div>
-                        </div>
-                        <div class="law-card female">
-                            <div class="gender-tag">👩 المرأة</div>
-                            <div class="item"><span class="age">58 سنة</span><span class="svc">خدمة 15 سنة</span></div>
-                            <div class="item"><span class="age">55 سنة</span><span class="svc">خدمة 20 سنة</span></div>
-                            <div class="item"><span class="age">50 سنة</span><span class="svc">خدمة 25 سنة</span></div>
+                    <h4><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M12 8.2v.1M12 11v5.2"/></svg> ما هو شراء الخدمة؟</h4>
+                    <div class="law-explain-box">
+                        <p>شراء الخدمة هو <strong>حق قانوني</strong> يتيح للمشترك في الضمان الاجتماعي إضافة مدة خدمة حتى يكمل الحد الأدنى المطلوب للإحالة إلى التقاعد.</p>
+                        <div class="law-explain-simple">
+                            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/></svg>
+                            <span>إذا بلغت سن التقاعد وكان لديك <strong>نقص في مدة الخدمة</strong>، يمكنك شراء مدة خدمة (بحد أقصى <strong>خمس سنوات</strong>) لإكمال شروط التقاعد.</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- المادة 29 -->
+                <div class="law-section">
+                    <h4><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l-3 6a4 4 0 0 0 8 0l-3-6zm14 0l-3 6a4 4 0 0 0 8 0l-3-6zM3 8h6M15 8h6M7 21h10"/></svg> المادة (29) — حالات استحقاق الراتب التقاعدي</h4>
+                    <p class="law-sub">يستحق المضمون راتباً تقاعدياً في إحدى الحالات الآتية:</p>
+                    <div class="law-grid">
+                        <div class="law-card">
+                            <div class="gender-tag male-tag">👨 الرجل</div>
+                            <div class="item"><span class="age">63 سنة</span><span class="svc">خدمة ≥ 15 سنة</span></div>
+                            <div class="item"><span class="age">60 سنة</span><span class="svc">خدمة ≥ 20 سنة</span></div>
+                            <div class="item"><span class="age">50 سنة</span><span class="svc">خدمة ≥ 30 سنة</span></div>
+                        </div>
+                        <div class="law-card female">
+                            <div class="gender-tag female-tag">👩 المرأة</div>
+                            <div class="item"><span class="age">58 سنة</span><span class="svc">خدمة ≥ 15 سنة</span></div>
+                            <div class="item"><span class="age">55 سنة</span><span class="svc">خدمة ≥ 20 سنة</span></div>
+                            <div class="item"><span class="age">50 سنة</span><span class="svc">خدمة ≥ 25 سنة</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- المادة 33 -->
                 <div class="law-section">
                     <h4><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/></svg> المادة (33) — شراء الخدمة</h4>
                     <div class="law-highlight">
-                        يجوز للمضمون الذي بلغ السن التقاعدي وليس لديه خدمة كافية للتقاعد، شراء خدمة أو إضافة خدمة وفق الشروط القانونية، على ألا تزيد مدة الشراء على <strong>خمس سنوات</strong>.
+                        يجوز للمضمون الذي بلغ السن التقاعدي وليس لديه خدمة كافية للتقاعد، شراء خدمة أو إضافة خدمة وفق الضوابط القانونية، على أن لا تتجاوز مدة شراء الخدمة <strong>خمس سنوات</strong>.
                     </div>
-                    <div class="law-note">بمعنى آخر: إذا بلغت سن التقاعد وكان لديك نقص لا يتجاوز 5 سنوات في مدة الخدمة، يمكنك شراء هذا النقص لإكمال شروط التقاعد.</div>
                 </div>
 
+                <!-- شروط الشراء -->
                 <div class="law-section">
-                    <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg> شروط شراء الخدمة بحسب السن</h4>
+                    <h4><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg> شروط شراء الخدمة بحسب السن والجنس</h4>
+                    <p class="law-sub">يُشترط لاستخدام حق شراء الخدمة توفر حد أدنى من الخدمة الفعلية:</p>
                     <div class="law-grid">
                         <div class="law-card">
-                            <div class="gender-tag">👨 الرجل</div>
-                            <div class="item"><span class="age">63 سنة</span><span class="svc">خدمة فعلية ≥ 10 سنوات</span></div>
-                            <div class="item"><span class="age">60–62 سنة</span><span class="svc">خدمة فعلية ≥ 15 سنة</span></div>
-                            <div class="item"><span class="age">50–59 سنة</span><span class="svc">خدمة فعلية ≥ 25 سنة</span></div>
+                            <div class="gender-tag male-tag">👨 الرجل</div>
+                            <div class="item">
+                                <span class="age">63 سنة</span>
+                                <span class="svc">خدمة فعلية ≥ 10 سنوات</span>
+                            </div>
+                            <div class="item-note">يمكن شراء حتى 5 سنوات للوصول إلى 15 سنة</div>
+                            <div class="item">
+                                <span class="age">60 – 62 سنة</span>
+                                <span class="svc">خدمة فعلية ≥ 15 سنة</span>
+                            </div>
+                            <div class="item-note">يمكن شراء حتى 5 سنوات للوصول إلى 20 سنة</div>
+                            <div class="item">
+                                <span class="age">50 – 59 سنة</span>
+                                <span class="svc">خدمة فعلية ≥ 25 سنة</span>
+                            </div>
+                            <div class="item-note">يمكن شراء حتى 5 سنوات للوصول إلى 30 سنة</div>
                         </div>
                         <div class="law-card female">
-                            <div class="gender-tag">👩 المرأة</div>
-                            <div class="item"><span class="age">58 سنة</span><span class="svc">خدمة فعلية ≥ 10 سنوات</span></div>
-                            <div class="item"><span class="age">55–57 سنة</span><span class="svc">خدمة فعلية ≥ 15 سنة</span></div>
-                            <div class="item"><span class="age">50–54 سنة</span><span class="svc">خدمة فعلية ≥ 20 سنة</span></div>
+                            <div class="gender-tag female-tag">👩 المرأة</div>
+                            <div class="item">
+                                <span class="age">58 سنة</span>
+                                <span class="svc">خدمة فعلية ≥ 10 سنوات</span>
+                            </div>
+                            <div class="item-note">يمكن شراء حتى 5 سنوات للوصول إلى 15 سنة</div>
+                            <div class="item">
+                                <span class="age">55 – 57 سنة</span>
+                                <span class="svc">خدمة فعلية ≥ 15 سنة</span>
+                            </div>
+                            <div class="item-note">يمكن شراء حتى 5 سنوات للوصول إلى 20 سنة</div>
+                            <div class="item">
+                                <span class="age">50 – 54 سنة</span>
+                                <span class="svc">خدمة فعلية ≥ 20 سنة</span>
+                            </div>
+                            <div class="item-note">يمكن شراء حتى 5 سنوات للوصول إلى 25 سنة</div>
                         </div>
                     </div>
                 </div>
@@ -1372,8 +1551,8 @@
             const dDay = document.getElementById('bDay'),
                 dMonth = document.getElementById('bMonth'),
                 dYear = document.getElementById('bYear');
-            const MONTHS = ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'أيار', 'حزيران', 'تموز', 'آب', 'أيلول', 'تشرين الأول',
-                'تشرين الثاني', 'كانون الأول'
+            const MONTHS = ['الشهر 1', 'الشهر 2', 'الشهر 3', 'الشهر 4', 'الشهر 5', 'الشهر 6',
+                'الشهر 7', 'الشهر 8', 'الشهر 9', 'الشهر 10', 'الشهر 11', 'الشهر 12'
             ];
 
             function fillSelect(sel, items, placeholder) {
@@ -1395,6 +1574,9 @@
             refreshDays();
             dMonth.addEventListener('change', refreshDays);
             dYear.addEventListener('change', refreshDays);
+            dDay.addEventListener('change', () => checkAgeWarning());
+            dMonth.addEventListener('change', () => checkAgeWarning());
+            dYear.addEventListener('change', () => checkAgeWarning());
 
             // ---- البوابة ----
             let path = null; // 'yes' | 'no'
@@ -1403,8 +1585,43 @@
             const formCard = document.getElementById('formCard');
             const serviceBlock = document.getElementById('serviceBlock');
             const approxNote = document.getElementById('approxNote');
+            const ageWarnNote = document.getElementById('ageWarnNote');
+            const ageWarnText = document.getElementById('ageWarnText');
             const gateHelper = document.getElementById('gateHelper');
             const gateHelperText = document.getElementById('gateHelperText');
+
+            // هل السن 50+ ولست مشتركاً حالياً، مما يستوجب إدخال خدمة سابقة
+            let needsServiceForNo = false;
+
+            function checkAgeWarning() {
+                if (path !== 'no') { ageWarnNote.style.display = 'none'; return; }
+                if (!dDay.value || !dMonth.value || !dYear.value) {
+                    needsServiceForNo = false;
+                    ageWarnNote.style.display = 'none';
+                    serviceBlock.style.display = 'none';
+                    approxNote.style.display = 'flex';
+                    return;
+                }
+                const bd = new Date(+dYear.value, +dMonth.value - 1, +dDay.value);
+                const age = LawEngine.diffYM(bd, new Date());
+                if (age.years >= 50) {
+                    needsServiceForNo = true;
+                    serviceBlock.style.display = 'block';
+                    approxNote.style.display = 'none';
+                    if (svcInput.value === '') {
+                        ageWarnText.textContent =
+                            `تنبيه: بما أن عمرك (${age.years} سنة) وأنت غير مشترك حالياً بالضمان الاجتماعي، فلا يمكن احتساب إمكانية شراء الخدمة إلا إذا كانت لديك خدمة سابقة.`;
+                        ageWarnNote.style.display = 'flex';
+                    } else {
+                        ageWarnNote.style.display = 'none';
+                    }
+                } else {
+                    needsServiceForNo = false;
+                    ageWarnNote.style.display = 'none';
+                    serviceBlock.style.display = 'none';
+                    approxNote.style.display = 'flex';
+                }
+            }
 
             function setPath(p) {
                 path = p;
@@ -1413,21 +1630,26 @@
                 formCard.style.display = 'block';
                 serviceBlock.style.display = (p === 'yes') ? 'block' : 'none';
                 approxNote.style.display = (p === 'no') ? 'flex' : 'none';
+                ageWarnNote.style.display = 'none';
+                needsServiceForNo = false;
 
                 // نصائح توضيحية حسب الاختيار
                 if (p === 'yes') {
                     gateHelper.style.display = 'block';
                     gateHelperText.innerHTML =
-                        '✅ اخترت أنك مسجل. أدخل عدد أشهر خدمتك الفعلية المسجلة في الضمان الاجتماعي.';
+                        '✅ اخترت أنك مشترك. أدخل عدد أشهر خدمتك الفعلية المسجلة في الضمان الاجتماعي.';
                 } else {
                     gateHelper.style.display = 'block';
                     gateHelperText.innerHTML =
-                        '⚠️ اخترت أنك غير مسجل. ستفترض الأداة أن خدمتك تبدأ من اليوم، وسيتم احتساب النتائج بناءً على ذلك. ننصحك بالتسجيل الفعلي في أقرب وقت.';
+                        '⚠️ اخترت أنك غير مشترك. ستفترض الأداة أن خدمتك تبدأ من اليوم، وسيتم احتساب النتائج بناءً على ذلك. ننصحك بالاشتراك الفعلي في أقرب وقت.';
                 }
 
                 document.getElementById('results').classList.remove('show');
-                if (p === 'no') { svcInput.value = '';
-                    svcHint.classList.remove('show'); }
+                if (p === 'no') {
+                    svcInput.value = '';
+                    svcHint.classList.remove('show');
+                    checkAgeWarning();
+                }
                 formCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
             gateYes.onclick = () => setPath('yes');
@@ -1453,6 +1675,10 @@
                     svcHint.classList.add('show');
                 } else {
                     svcHint.classList.remove('show');
+                }
+                // إخفاء تنبيه السن تلقائياً بمجرد إدخال عدد الأشهر
+                if (needsServiceForNo) {
+                    ageWarnNote.style.display = (svcInput.value !== '') ? 'none' : 'flex';
                 }
             });
 
@@ -1495,6 +1721,11 @@
                     showFieldError('يرجى إدخال عدد أشهر الخدمة المضمونة (مثال: 240).');
                     return false;
                 }
+                if (path === 'no' && needsServiceForNo && (svcInput.value === '' || +svcInput.value < 0)) {
+                    svcInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    showFieldError('بما أن عمرك 50 سنة أو أكثر وغير مشترك حالياً، يرجى إدخال عدد أشهر الخدمة السابقة لإتمام الاحتساب.');
+                    return false;
+                }
                 return true;
             }
 
@@ -1506,6 +1737,9 @@
                 gateNo.classList.remove('active');
                 gateHelper.style.display = 'none';
                 formCard.style.display = 'none';
+                approxNote.style.display = 'none';
+                ageWarnNote.style.display = 'none';
+                needsServiceForNo = false;
                 document.querySelectorAll('input[name="gender"]').forEach(r => r.checked = false);
                 document.getElementById('genderMaleLbl').classList.remove('active');
                 document.getElementById('genderFemaleLbl').classList.remove('active');
@@ -1530,15 +1764,15 @@
                     label: 'يتطلب معرفة خدمتك للحساب الدقيق' }
             };
 
-            function renderResults(evalResult) {
+            function renderResults(evalResult, usesEnteredService) {
                 const { currentAge, plans, recommended, hasService } = evalResult;
 
                 document.getElementById('sumAge').textContent = `${currentAge.years} سنة و${currentAge.months} شهر`;
-                document.getElementById('sumSvc').textContent = (path === 'yes' && hasService) ? LawEngine.formatYM(+svcInput
+                document.getElementById('sumSvc').textContent = usesEnteredService ? LawEngine.formatYM(+svcInput
                     .value) : 'ابتداءً من اليوم';
 
                 const headline = document.getElementById('headline');
-                if (path === 'no') {
+                if (path === 'no' && !usesEnteredService) {
                     headline.className = 'headline-box warn';
                     headline.innerHTML =
                         `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M12 8.2v.1M12 11v5.2"/></svg>
@@ -1571,8 +1805,7 @@
                     const meta = STATUS_META[p.status] || STATUS_META.unknown;
                     // عرض السن الفعلي المحسوب (وليس نطاق كامل)، مع توضيح النطاق القانوني الأصلي إن اختلف
                     const ageLabel = `${p.age} سنة`;
-                    const startStr = p.startDate.toLocaleDateString('ar-IQ', { year: 'numeric',
-                        month: 'long' });
+                    const startStr = `الشهر ${p.startDate.getMonth()+1} / ${p.startDate.getFullYear()}`;
 
                     let whenHtml;
                     if (p.expired) {
@@ -1624,9 +1857,10 @@
                 if (!validateForm()) return;
                 const birthDate = new Date(+dYear.value, +dMonth.value - 1, +dDay.value);
                 const today = new Date();
-                const currentServiceMonths = path === 'yes' ? +svcInput.value : 0;
+                const usesEnteredService = (path === 'yes') || (path === 'no' && needsServiceForNo && svcInput.value !== '');
+                const currentServiceMonths = usesEnteredService ? +svcInput.value : 0;
                 const result = LawEngine.evaluate({ birthDate, gender, currentServiceMonths, today });
-                renderResults(result);
+                renderResults(result, usesEnteredService);
             };
 
         })();
